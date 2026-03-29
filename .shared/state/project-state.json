@@ -1,0 +1,27 @@
+{
+  "project": "focusflow-ai",
+  "version": "0.1.0",
+  "ecosystem": "HumanOS",
+  "brand": {
+    "color": "#f43f5e",
+    "name": "Rose"
+  },
+  "status": "build-complete",
+  "buildVerified": false,
+  "deployed": false,
+  "dbProvisioned": false,
+  "tech": {
+    "framework": "next@14",
+    "database": "postgresql+prisma@6",
+    "auth": "next-auth@4",
+    "ai": "gpt-4o-mini"
+  },
+  "features": {
+    "pomodoroTimer": true,
+    "taskManagement": true,
+    "aiCoach": true,
+    "analytics": true,
+    "achievements": true
+  },
+  "updatedAt": "2026-03-29"
+}

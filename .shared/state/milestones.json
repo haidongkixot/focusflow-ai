@@ -1,0 +1,14 @@
+{
+  "project": "focusflow-ai",
+  "milestones": {
+    "M0": { "name": "Scaffold + Config", "status": "complete", "gate": "open" },
+    "M1": { "name": "Design System + Landing", "status": "complete", "gate": "open" },
+    "M2": { "name": "Auth + Database", "status": "complete", "gate": "open" },
+    "M3": { "name": "Task Management", "status": "complete", "gate": "open" },
+    "M4": { "name": "Pomodoro Timer + Sessions", "status": "complete", "gate": "open" },
+    "M5": { "name": "Analytics + AI Coach", "status": "complete", "gate": "open" },
+    "M6": { "name": "Seed + Deploy", "status": "pending", "gate": "closed" }
+  },
+  "current": "M6",
+  "updatedAt": "2026-03-29"
+}

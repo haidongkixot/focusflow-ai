@@ -1,0 +1,20 @@
+[
+  {
+    "id": "D001",
+    "date": "2026-03-29",
+    "decision": "MVP focuses on Pomodoro timer + task management + AI coach",
+    "rationale": "Core value prop is focused work sessions, not feature breadth"
+  },
+  {
+    "id": "D002",
+    "date": "2026-03-29",
+    "decision": "Rose #f43f5e brand color distinguishes FocusFlow within HumanOS",
+    "rationale": "Each app has unique brand color per ecosystem design system"
+  },
+  {
+    "id": "D003",
+    "date": "2026-03-29",
+    "decision": "Sessions API auto-increments task.focusSessions on completion",
+    "rationale": "Track how many pomodoros each task required without extra queries"
+  }
+]
