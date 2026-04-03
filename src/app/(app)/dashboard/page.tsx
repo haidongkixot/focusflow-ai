@@ -33,11 +33,15 @@ export default function DashboardPage() {
 
   useEffect(() => {
     fetch('/api/progress')
-      .then(r => r.json())
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to fetch')
+        return r.json()
+      })
       .then(d => {
         setStats(d.stats)
         setAchievements(d.achievements?.slice(0, 3) ?? [])
       })
+      .catch(() => {})
   }, [])
 
   async function loadCoach() {

@@ -119,7 +119,7 @@ export default function LeaderboardPage() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-accent-400">{entry.totalXp.toLocaleString()}</p>
+                  <p className="font-bold text-accent-400">{(entry.totalXp ?? 0).toLocaleString()}</p>
                   <p className="text-xs text-text-muted">XP</p>
                 </div>
               </div>
