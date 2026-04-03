@@ -335,6 +335,34 @@ async function main() {
   }
   console.log(`  ✓ ${defaultTechniques.length} Focus Techniques`)
 
+  // AI Configs
+  const aiConfigs = [
+    {
+      contentType: 'focus_technique',
+      model: 'gpt-4o-mini',
+      temperature: 0.9,
+      maxTokens: 800,
+      systemPrompt: 'You are a productivity and focus expert. Return valid JSON only, no markdown fences.',
+      isActive: true,
+    },
+    {
+      contentType: 'blog_post',
+      model: 'gpt-4o-mini',
+      temperature: 0.8,
+      maxTokens: 1500,
+      systemPrompt: 'You are an expert content writer specializing in productivity, focus, and deep work. Return ONLY valid JSON, no markdown fences.',
+      isActive: true,
+    },
+  ]
+  for (const cfg of aiConfigs) {
+    await prisma.aIConfig.upsert({
+      where: { contentType: cfg.contentType },
+      update: {},
+      create: cfg,
+    })
+  }
+  console.log('  ✓ AI Configs')
+
   console.log('\n🎉 FocusFlow seed complete!')
 }
 
