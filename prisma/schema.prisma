@@ -373,3 +373,24 @@ model Quest {
   @@index([userId])
   @@index([date])
 }
+
+// ─── Focus Techniques (AI-generated) ────────────────────────
+
+model FocusTechnique {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  category     String   // 'deep_work' | 'creative' | 'learning' | 'energy' | 'mindfulness'
+  description  String   @db.Text
+  instructions String[]
+  durationMins Int      @default(25)
+  breakMins    Int      @default(5)
+  cycles       Int      @default(4)
+  difficulty   String   @default("beginner")
+  benefits     String[]
+  ambientSound String?  // 'rain' | 'cafe' | 'nature' | 'white_noise' | null
+  isActive     Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
