@@ -27,6 +27,7 @@ export default function Navbar() {
                 <Link href="/timer" className="text-text-secondary hover:text-text-primary transition">Timer</Link>
                 <Link href="/tasks" className="text-text-secondary hover:text-text-primary transition">Tasks</Link>
                 <Link href="/analytics" className="text-text-secondary hover:text-text-primary transition">Analytics</Link>
+                <Link href="/academy" className="text-text-secondary hover:text-text-primary transition">Academy</Link>
                 <Link href="/coach" className="text-text-secondary hover:text-text-primary transition">Coach</Link>
                 <Link href="/quests" className="text-text-secondary hover:text-text-primary transition">Quests</Link>
                 <Link href="/leaderboard" className="text-text-secondary hover:text-text-primary transition">Leaderboard</Link>
@@ -53,6 +54,7 @@ export default function Navbar() {
                 <Link href="/timer" className="block py-2 text-text-secondary">Timer</Link>
                 <Link href="/tasks" className="block py-2 text-text-secondary">Tasks</Link>
                 <Link href="/analytics" className="block py-2 text-text-secondary">Analytics</Link>
+                <Link href="/academy" className="block py-2 text-text-secondary">Academy</Link>
                 <Link href="/coach" className="block py-2 text-text-secondary">Coach</Link>
                 <Link href="/quests" className="block py-2 text-text-secondary">Quests</Link>
                 <Link href="/leaderboard" className="block py-2 text-text-secondary">Leaderboard</Link>

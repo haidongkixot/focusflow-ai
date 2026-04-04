@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation'
 import { authOptions } from '@/lib/auth'
 import Providers from '@/components/providers'
 import Link from 'next/link'
-import { LayoutDashboard, Users, Timer, ListTodo, Trophy, Zap, BarChart2, CreditCard, FileText, Bell, AlertCircle, Lightbulb, Bot, ScrollText } from 'lucide-react'
+import { LayoutDashboard, Users, Timer, ListTodo, Trophy, Zap, BarChart2, CreditCard, FileText, Bell, AlertCircle, Lightbulb, Bot, ScrollText, GraduationCap } from 'lucide-react'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions)
@@ -17,6 +17,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     { href: '/admin/achievements', label: 'Achievements', Icon: Trophy },
     { href: '/admin/analytics', label: 'Analytics', Icon: BarChart2 },
     { href: '/admin/plans', label: 'Plans', Icon: CreditCard },
+    { href: '/admin/academy', label: 'Academy', Icon: GraduationCap },
     { href: '/admin/cms', label: 'Blog / CMS', Icon: FileText },
     { href: '/admin/techniques', label: 'Techniques', Icon: Lightbulb },
     { href: '/admin/ai-config', label: 'AI Config', Icon: Bot },
