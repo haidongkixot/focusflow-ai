@@ -329,11 +329,75 @@ async function main() {
       ambientSound: 'nature', sortOrder: 5,
     },
   ]
-  for (const t of defaultTechniques) {
+  const additionalTechniques = [
+    {
+      name: 'Pomodoro Plus',
+      slug: 'pomodoro-plus',
+      category: 'deep_work',
+      description: 'Classic Pomodoro with 3-min movement break every 2 cycles. Combines the proven 25-minute focus interval with active recovery to sustain energy and reduce sedentary fatigue throughout long work sessions.',
+      instructions: ['Set your timer for 25 minutes and begin focused work', 'Take a 5-minute rest break after each cycle', 'After every 2 cycles, add a 3-minute movement break (stretching, walking)', 'Complete 4 total cycles for a full session', 'Track how movement breaks affect your afternoon energy levels'],
+      durationMins: 25, breakMins: 5, cycles: 4, difficulty: 'beginner',
+      benefits: ['Combines proven Pomodoro with active recovery', 'Reduces sedentary fatigue', 'Maintains energy across long sessions'],
+      ambientSound: null, sortOrder: 6,
+    },
+    {
+      name: 'DeskTime Method',
+      slug: 'desktime-method',
+      category: 'deep_work',
+      description: 'Based on Draugiem Group research — the most productive workers work for 52 minutes then break for 17. This rhythm maximizes sustained output while preventing burnout.',
+      instructions: ['Set timer for 52 minutes of uninterrupted work', 'Work with full intensity — treat it as a sprint', 'When the timer rings, step away completely for 17 minutes', 'During breaks, avoid screens — walk, stretch, or chat', 'Repeat for up to 3 cycles per session'],
+      durationMins: 52, breakMins: 17, cycles: 3, difficulty: 'intermediate',
+      benefits: ['Research-backed optimal work rhythm', 'Higher sustained output than shorter intervals', 'Prevents cognitive depletion'],
+      ambientSound: 'cafe', sortOrder: 7,
+    },
+    {
+      name: 'Ultradian Sprint',
+      slug: 'ultradian-sprint',
+      category: 'energy',
+      description: 'Aligned with Kleitman\'s 90-minute biological cycles (BRAC). Works with your body\'s natural Basic Rest-Activity Cycle for maximum cognitive output during each ultradian peak.',
+      instructions: ['Begin at the start of an energy peak — use your chronotype data', 'Set the timer for 90 minutes of deep, unbroken focus', 'Work through natural micro-dips — they pass within minutes', 'Take a full 20-minute recovery break between sprints', 'Limit to 2 sprints per day for sustainable performance'],
+      durationMins: 90, breakMins: 20, cycles: 2, difficulty: 'advanced',
+      benefits: ['Aligns with your biological rhythms', 'Maximum depth per session', 'Builds elite-level focus endurance'],
+      ambientSound: 'white_noise', sortOrder: 8,
+    },
+    {
+      name: 'Creative Incubation',
+      slug: 'creative-incubation',
+      category: 'creative',
+      description: 'Focused work + walking break for subconscious incubation. Leverages the Zeigarnik effect — your brain continues processing unsolved problems during breaks, often producing breakthrough insights.',
+      instructions: ['Define a creative challenge or problem to solve', 'Work intensely for 30 minutes — brainstorm, draft, explore', 'Take a 15-minute walking break — no phone, let your mind wander', 'Return and capture any new ideas that surfaced', 'Repeat for 3 cycles, noticing how insights deepen each round'],
+      durationMins: 30, breakMins: 15, cycles: 3, difficulty: 'intermediate',
+      benefits: ['Harnesses subconscious problem-solving', 'Walking boosts creative output by 60%', 'Alternates divergent and convergent thinking'],
+      ambientSound: 'nature', sortOrder: 9,
+    },
+    {
+      name: 'Meeting Recovery',
+      slug: 'meeting-recovery',
+      category: 'mindfulness',
+      description: 'Micro-sessions to recover focus after meetings. Meetings drain attention through context-switching. These short blocks help you re-center and transition back to productive deep work.',
+      instructions: ['After a meeting, take 2 minutes of silence to decompress', 'Write down 1-3 action items from the meeting', 'Set timer for 10 minutes and tackle one small task', 'Take a 2-minute breath break between micro-sessions', 'After 3 cycles (36 min), you are fully re-engaged'],
+      durationMins: 10, breakMins: 2, cycles: 3, difficulty: 'beginner',
+      benefits: ['Recovers focus after context-switching', 'Captures meeting action items immediately', 'Smooth transition back to deep work'],
+      ambientSound: null, sortOrder: 10,
+    },
+    {
+      name: 'Evening Wind-Down',
+      slug: 'evening-wind-down',
+      category: 'mindfulness',
+      description: 'Gentle review session — reflect on the day, plan tomorrow. This single-cycle ritual closes open loops, reduces evening anxiety, and sets clear intentions for the next day.',
+      instructions: ['Review what you accomplished today — celebrate wins', 'Note any unfinished tasks and decide: defer, delegate, or drop', 'Write your top 3 priorities for tomorrow', 'Set out your workspace so it is ready for morning focus', 'End with 2 minutes of gratitude or calm breathing'],
+      durationMins: 20, breakMins: 0, cycles: 1, difficulty: 'beginner',
+      benefits: ['Closes open loops to reduce evening anxiety', 'Next-day planning reduces morning decision fatigue', 'Builds a sustainable daily rhythm'],
+      ambientSound: 'nature', sortOrder: 11,
+    },
+  ]
+
+  const allTechniques = [...defaultTechniques, ...additionalTechniques]
+  for (const t of allTechniques) {
     await prisma.focusTechnique.upsert({ where: { slug: t.slug }, update: t, create: t })
     console.log(`  ✓ Technique: ${t.name}`)
   }
-  console.log(`  ✓ ${defaultTechniques.length} Focus Techniques`)
+  console.log(`  ✓ ${allTechniques.length} Focus Techniques`)
 
   // AI Configs
   const aiConfigs = [

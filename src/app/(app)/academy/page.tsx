@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { BookOpen, CheckCircle, Lock } from 'lucide-react'
+import { BookOpen, CheckCircle, Lock, Activity, Clock, Coffee, Brain } from 'lucide-react'
 
 interface Chapter {
   id: string; slug: string; title: string; category: string
@@ -62,6 +62,26 @@ export default function AcademyPage() {
             {c === 'all' ? 'All' : (CATEGORY_ICONS[c] || '') + ' ' + c.replace(/_/g, ' ')}
           </button>
         ))}
+      </div>
+
+      {/* Research Tools */}
+      <div>
+        <h2 className="text-xl font-bold text-text-primary mb-3">Research Tools</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { href: '/academy/flow-assessment', icon: <Activity className="w-6 h-6" />, title: 'Flow Assessment', desc: 'Rate Csikszentmihalyi\'s 8 flow characteristics and track your state over time' },
+            { href: '/academy/chronotype', icon: <Clock className="w-6 h-6" />, title: 'Chronotype Quiz', desc: 'Discover if you\'re a Morning Lark, Third Bird, or Night Owl' },
+            { href: '/academy/break-tracker', icon: <Coffee className="w-6 h-6" />, title: 'Break Tracker', desc: 'Log breaks and find which types restore your focus best' },
+            { href: '/academy/procrastination', icon: <Brain className="w-6 h-6" />, title: 'Procrastination Decoder', desc: 'TMT analysis to pinpoint and fix your procrastination trigger' },
+          ].map((tool) => (
+            <Link key={tool.href} href={tool.href}
+              className="bg-bg-surface border border-gray-800 hover:border-rose-400/30 rounded-xl p-5 transition-all group hover:shadow-lg hover:shadow-rose-400/5">
+              <div className="text-rose-400 mb-3">{tool.icon}</div>
+              <h3 className="font-semibold text-text-primary group-hover:text-rose-400 transition-colors text-sm">{tool.title}</h3>
+              <p className="text-xs text-text-muted mt-1 line-clamp-2">{tool.desc}</p>
+            </Link>
+          ))}
+        </div>
       </div>
 
       {/* Chapter cards */}
