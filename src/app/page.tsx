@@ -377,6 +377,48 @@ export default function LandingPage() {
       </section>
 
       {/* ============================================================ */}
+      {/*  SECTION: Academy                                             */}
+      {/* ============================================================ */}
+      <section className="py-16 bg-[#0a0a10]">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-rose-400/80 text-[10px] uppercase tracking-[0.2em] font-semibold mb-3">
+              Academy
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
+              Learn the Science
+            </h2>
+            <p className="text-gray-500 text-sm max-w-md mx-auto">
+              Master the research behind focus and productivity with structured lessons.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+            {[
+              { title: 'Attention Science', subtitle: 'How your brain allocates focus and why it fails', icon: '🧠' },
+              { title: 'Deep Work', subtitle: 'Cal Newport\'s framework for distraction-free productivity', icon: '📵' },
+              { title: 'The Procrastination Brain', subtitle: 'Why we delay and how to rewire the pattern', icon: '⏳' },
+            ].map((ch) => (
+              <div key={ch.title} className="bg-[#111118] border border-gray-800/60 rounded-lg p-5 hover:border-rose-500/20 hover:shadow-[0_0_30px_rgba(244,63,94,0.06)] transition-all duration-300">
+                <div className="text-2xl mb-3">{ch.icon}</div>
+                <h3 className="text-gray-200 font-semibold text-sm mb-1.5">{ch.title}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{ch.subtitle}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href="/academy"
+              className="inline-block border border-gray-800 hover:border-rose-500/30 text-gray-400 hover:text-rose-400 px-7 py-2.5 rounded-lg text-sm transition-all"
+            >
+              Explore Academy &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================ */}
       {/*  SECTION 4 — CTA                                             */}
       {/* ============================================================ */}
       <section className="py-16 bg-[#0c0c12]">
